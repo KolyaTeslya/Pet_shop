@@ -13,13 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pet-shop/index');
-});
 
-Route::get('pet-shop/main', function (){
-    return view('pet-shop/index');
-})->name('pet-shop/main');
+
+Route::get('/', [\App\Http\Controllers\ProductController::class, 'shopIndex'])->name('home');
 
 Route::get('pet-shop/food', [\App\Http\Controllers\ProductController::class, 'shopList'])
     ->name('pet-shop/food');
