@@ -18,8 +18,10 @@ class ProductController extends Controller
 
     public function shopIndex()
     {
-        $randProducts = Product::query()->inRandomOrder()->limit(3)->get();
+        $randProducts = Product::query()->inRandomOrder()->limit(4)->get();
 
-        return view('pet-shop/index', ['$randProducts' => $randProducts]);
+        $product =Product::query()->select()->inRandomOrder()->limit(1)->get();
+
+        return view('pet-shop/index', ['randProducts' => $randProducts, 'product' => $product]);
     }
 }
