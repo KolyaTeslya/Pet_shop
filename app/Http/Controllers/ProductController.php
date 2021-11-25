@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function shopList()
     {
-       $products = Product::query()->limit(3)->offset(1)->get();
+       $products = Product::query()->limit(4)->offset(1)->get();
 
        return view('pet-shop/shop-page', [
            'products' => $products,

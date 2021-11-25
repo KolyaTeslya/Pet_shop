@@ -68,7 +68,7 @@
                             <div class="main-menu text-center">
                                 <nav>
                                     <ul>
-                                        <li><a href="{{route('pet-shop/main')}}">HOME</a>
+                                        <li><a href="{{route('home')}}">HOME</a>
                                             <ul class="submenu">
                                                 <li>
                                                     <a href="index.blade.php">home version 1</a>
