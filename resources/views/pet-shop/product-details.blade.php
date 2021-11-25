@@ -68,7 +68,7 @@
                             <div class="main-menu text-center">
                                 <nav>
                                     <ul>
-                                        <li><a href="index.blade.php">HOME</a>
+                                        <li><a href="{{route('pet-shop/main')}}">HOME</a>
                                             <ul class="submenu">
                                                 <li>
                                                     <a href="index.blade.php">home version 1</a>
@@ -346,50 +346,19 @@
         <div class="shop-area pt-95 pb-100">
             <div class="container">
                 <div class="row">
+                    @foreach($product as $item)
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-img">
-                            <img id="zoompro" src="../../../public/img/product-details/l1.jpg" data-zoom-image="../../../public/img/product-details/bl1.jpg" alt="zoom"/>
-                            <div id="gallery" class="mt-12 product-dec-slider owl-carousel">
-                                <a data-image="../../../public/img/product-details/l1.jpg" data-zoom-image="../../../public/img/product-details/bl1.jpg">
-                                    <img src="../../../public/img/product-details/s1.jpg" alt="">
-                                </a>
-                                <a data-image="../../../public/img/product-details/l2.jpg" data-zoom-image="../../../public/img/product-details/bl2.jpg">
-                                    <img src="../../../public/img/product-details/s2.jpg" alt="">
-                                </a>
-                                <a data-image="../../../public/img/product-details/l3.jpg" data-zoom-image="../../../public/img/product-details/bl3.jpg">
-                                    <img src="../../../public/img/product-details/s3.jpg" alt="">
-                                </a>
-                                <a data-image="../../../public/img/product-details/l4.jpg" data-zoom-image="../../../public/img/product-details/bl4.jpg">
-                                    <img src="../../../public/img/product-details/s4.jpg" alt="">
-                                </a>
-                                <a data-image="../../../public/img/product-details/l3.jpg" data-zoom-image="../../../public/img/product-details/bl3.jpg">
-                                    <img src="../../../public/img/product-details/s3.jpg" alt="">
-                                </a>
-                            </div>
+                            <img id="zoompro" src="../../../public/storage/{{$item->image}}" data-zoom-image="../../../public/img/product-details/bl1.jpg" alt="zoom"/>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content">
-                            <h2>Dog Calcium Food</h2>
-                            <div class="product-rating">
-                                <i class="ti-star theme-color"></i>
-                                <i class="ti-star theme-color"></i>
-                                <i class="ti-star theme-color"></i>
-                                <i class="ti-star"></i>
-                                <i class="ti-star"></i>
-                                <span> ( 01 Customer Review )</span>
-                            </div>
+                            <h2>{{$item->name}}</h2>
+
                             <div class="product-price">
-                                <span class="new">$20.00 </span>
-                                <span class="old">$50.00</span>
-                            </div>
-                            <div class="in-stock">
-                                <span><i class="ion-android-checkbox-outline"></i> In Stock</span>
-                            </div>
-                            <div class="sku">
-                                <span>SKU#: MS04</span>
-                            </div>
-                            <p>Founded in 1989, Jack & Jones is a Danish brand that offers cool, relaxed designs that express a strong visual style through their diffusion lines, Jack & Jones intelligence and Jack & Jones vintage.</p>
+                                <span>${{$item->price}} </span>
+
                             <div class="product-details-style shorting-style mt-30">
                                 <label>color:</label>
                                 <select>
@@ -443,20 +412,7 @@
                     <div class="tab-content description-review-bottom">
                         <div id="des-details1" class="tab-pane active">
                             <div class="product-description-wrapper">
-                                <p>This stewpot is part of the Scanpan Classic cookware range, which boasts GreenTek non-stick coating which is 100% PFOA free, meaning it's safer for your family and the environment. The heavy-duty, pressure-cast aluminum body has an extra-thick base for quick, even heating and it is compatible with all cooking surfaces (excluding induction). The extraordinarily hard exterior surface is a combination of ceramic and titanium nonstick cooking surface which is impossible to scrape away, even with metal utensils. Patented spring-lock handle stays cool during normal stove top use and the stewpot is also oven safe from up to 260°C. It's also dishwasher safe for easy cleanup. </p>
-                                <p>Scanpan is designed and manufactured in Denmark and offers a lifetime warranty.</p>
-                                <ul>
-                                    <li>Key Features:</li>
-                                    <li>Heavy duty, pressure cast aluminium with extra thick base for quick heat up</li>
-                                    <li>Ceramic titanium surface with PFOA-free GreenTek non-stick coating</li>
-                                    <li>Fat-free frying, metal utensils safe</li>
-                                    <li>Suitable for all stove tops, except induction</li>
-                                    <li>Guaranteed not to warp</li>
-                                    <li>Fast and even heat distribution</li>
-                                    <li>Ovenproof up to 260°C</li>
-                                    <li>Dishwasher safe - but not recommended</li>
-                                    <li>Designed and manufactured in Denmark</li>
-                                </ul>
+                                <p>{{$item->description}}</p>
                             </div>
                         </div>
                         <div id="des-details2" class="tab-pane">
@@ -541,6 +497,7 @@
                                                     <input type="submit" value="add review">
                                                 </div>
                                             </div>
+                                            @endforeach
                                         </div>
                                     </form>
                                 </div>

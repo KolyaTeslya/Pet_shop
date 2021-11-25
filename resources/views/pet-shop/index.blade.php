@@ -423,7 +423,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="product-wrapper mb-10">
                             <div class="product-img">
-                                <a href="product-details.blade.php">
+                                <a href="{{route('pet-shop/product-details', ['id' => $randProduct->id])}}">
                                     <img src="../../../public/storage/{{$randProduct->image}}" alt="">
                                 </a>
                                 <div class="product-action">
@@ -441,7 +441,8 @@
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4><a href="product-details.blade.php">{{$randProduct->name}}</a></h4>
+                                <h4><a href="{{route('pet-shop/product-details', ['id' => $randProduct->id])}}">
+                                        {{$randProduct->name}}</a></h4>
                                 <div class="product-price">
                                     <span class="new">{{$randProduct->price}} </span>
                                 </div>

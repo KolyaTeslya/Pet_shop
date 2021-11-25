@@ -24,4 +24,11 @@ class ProductController extends Controller
 
         return view('pet-shop/index', ['randProducts' => $randProducts, 'product' => $product]);
     }
+    public function productDetails(Request $request)
+    {
+        $product = Product::query()->where(['id' => $request->id])->get();
+
+        return view('pet-shop/product-details', ['product' => $product]);
+    }
+
 }
