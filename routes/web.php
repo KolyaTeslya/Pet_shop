@@ -23,9 +23,8 @@ Route::get('pet-shop/main', [\App\Http\Controllers\ProductController::class, 'sh
 Route::get('pet-shop/food', [\App\Http\Controllers\ProductController::class, 'shopList'])
     ->name('pet-shop/food');
 
-Route::get('pet-shop/contact', function (){
-    return view('pet-shop/contact');
-})->name('pet-shop/contact');
+Route::get('pet-shop/contact', [\App\Http\Controllers\ProductController::class, 'contact'])
+    ->name('pet-shop/contact');
 
 Route::get('pet-shop/about',[\App\Http\Controllers\PetController::class, 'about'])
     ->name('pet-shop/about');
@@ -36,6 +35,9 @@ Route::get('pet-shop/product-details', [\App\Http\Controllers\ProductController:
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('pet-shop/add-cart', [\App\Http\Controllers\ProductController::class, 'addCart'])
+    ->name('pet-shop/add-cart');
 
 require __DIR__.'/auth.php';
 
